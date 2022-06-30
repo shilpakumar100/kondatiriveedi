@@ -1,0 +1,29 @@
+# amazon-linux-extras list | grep php
+# amazon-linux-extras enable php7.2
+# yum clean metadata
+# yum info php
+# yum install php
+Search for PHP extensions and then install them using the yum command:
+# yum search php | more
+# yum search php | grep -E 'gd|mysql'
+
+You must clean metadata and search/verify PHP version:
+# yum clean metadata
+# yum info php
+# yum install php
+Then restart the service using the systemctl command:
+# systemctl restart httpd.service
+For instance:
+# yum install php-gd php-json php-mbstring php-mysqlnd php-opcache php-pdo php-pecl-igbinary
+Then enable and restart the services using the systemctl command:
+# systemctl enable php-fpm.service
+# systemctl restart php-fpm.service
+You can check and print PHP version installed on Linux box by typing the following command:
+php --version
+php-fpm --version
+ output
+PHP 7.2 (fpm-fcgi) (built: Jul  7 2021 17:37:26)
+Copyright (c) The PHP Group
+Zend Engine v4.0.8, Copyright (c) Zend Technologies
+
+

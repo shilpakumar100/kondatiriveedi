@@ -1,0 +1,32 @@
+#yum -y update
+#tee /etc/yum.repos.d/mongodb-org-5.0.repo<<EOL
+[mongodb-org-5.0]
+name=MongoDB Repository
+baseurl=https://repo.mongodb.org/yum/amazon/2/mongodb-org/5.0/x86_64/
+gpgcheck=1
+enabled=1
+gpgkey=https://www.mongodb.org/static/pgp/server-5.0.asc
+EOL
+#yum repolist
+Step 3 – Install MongoDB 5.0 on Amazon Linux 2
+Run the following command to install the most recent stable version of MongoDB
+#yum install mongodb-org
+#yum install -y mongodb-org-5.0.2 mongodb-org-database-5.0.2 mongodb-org-server-5.0.2 mongodb-org-shell-5.0.2 mongodb-org-mongos-5.0.2 mongodb-org-tools-5.0.2
+#mongod --version
+db version v5.0.2
+Build Info: {
+    "version": "5.0.2",
+    "gitVersion": "6d9ec525e78465dcecadcff99cce953d380fedc8",
+    "openSSLVersion": "OpenSSL 1.0.2k-fips  26 Jan 2017",
+    "modules": [],
+    "allocator": "tcmalloc",
+    "environment": {
+        "distmod": "amazon2",
+        "distarch": "x86_64",
+        "target_arch": "x86_64"
+    }
+#systemctl start mongod
+#systemctl enable mongod
+Now, check the status of the service:
+
+#systemctl status mongod

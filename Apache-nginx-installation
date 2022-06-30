@@ -1,0 +1,29 @@
+launched EC-2 -instance with amazon linux
+Step-1: yum update -y
+#Yum install epel-release
+#yum install nginx
+#systemctl start nginx
+#systemctl status nginx
+Step -2: yum install httpd -y
+#systemctl start httpd
+systemctl status httpd
+
+
+Here i got error nginx  failed
+Because both servers are listening on same port 80
+So i configured nginx port number 80 to 8080
+#vi /etc/nginx/nginx.defualt
+Listen port number 8080
+save&exit
+Restart the nginx
+Then check 
+systemctl start nginx
+systemctl status nginx
+We can check ports 
+By using
+#netstat -tulpn | grep LISTEN
+
+
+
+
+The output  

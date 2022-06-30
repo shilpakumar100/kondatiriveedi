@@ -1,0 +1,21 @@
+Installing mysql 5.7 on centos 6
+
+1. download yum repo
+	wget http://dev.mysql.com/get/mysql57-community-release-el6-7.noarch.rpm
+
+2. install yum repo
+	yum -y localinstall mysql57-community-release-el6-7.noarch.rpm
+
+3. verify yum repo
+	yum repolist enabled | grep "mysql.*-community.*"
+
+3a. to enable/disable a particular release
+# yum-config-manager --disable mysql57-community
+# yum-config-manager --enable mysql56-community
+
+
+4. install 
+	yum -y install mysql-community-server
+	service mysqld start
+	service mysqld status
+	mysql --version
